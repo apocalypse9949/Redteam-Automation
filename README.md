@@ -43,31 +43,31 @@ redteam/
 
 ## Features
 
-### 🔍 Reconnaissance
+### Reconnaissance
 - **Subdomain Enumeration** — DNS brute-force with built-in wordlist + Certificate Transparency log queries via crt.sh
 - **Port Scanning** — Full Nmap integration with service version detection, or pure-Python socket fallback
 - **Vulnerability Scanning** — NVD CVE database queries + local searchsploit integration
 - **Web Reconnaissance** — Directory brute-forcing, technology fingerprinting (Wappalyzer-style), robots.txt parsing
 - **OS Fingerprinting** — Nmap OS detection + TCP/IP stack analysis + banner grabbing
 
-### 💥 Exploitation
+### Exploitation
 - **Intelligent Exploit Selection** — Scores and prioritizes exploits based on CVSS, service versions, and known high-value CVE patterns
 - **Credential Brute Force** — Hydra wrapper with Python fallbacks for SSH (paramiko) and FTP (ftplib)
 - **Web Application Attacks** — SQL injection, XSS, command injection, LFI/RFI testing with SQLMap integration
 - **CVE Exploits** — Real vulnerability checks for EternalBlue (MS17-010), Log4Shell, Shellshock, and more
 
-### 🔓 Post-Exploitation
+### Post-Exploitation
 - **Privilege Escalation** — Linux (SUID binaries, sudo misconfigs, kernel exploits like DirtyCow/DirtyPipe) and Windows (UAC bypass, token impersonation, DLL hijacking)
 - **Lateral Movement** — Internal subnet discovery, SSH/SMB credential reuse, pass-the-hash analysis
 - **Persistence** — Identifies mechanisms: cron jobs, SSH keys, systemd services, registry run keys, scheduled tasks, WMI subscriptions
 - **Credential Harvesting** — Maps credential stores: /etc/shadow, LSASS, SAM, Kerberos tickets, browser passwords, cloud credentials
 
-### 📊 Reporting & Visualization
+### Reporting & Visualization
 - **Attack Path Graph** — NetworkX-powered directed graph exported as JSON (D3.js), DOT (Graphviz), and PNG
 - **HTML Security Report** — Professional dark-themed report with executive summary, risk matrix, vulnerability table, attack timeline, MITRE ATT&CK coverage grid, and remediation recommendations
 - **Real-Time Dashboard** — Flask + SocketIO web dashboard with live event feed, phase progression bar, target status tracking
 
-### 🛡️ MITRE ATT&CK
+### MITRE ATT&CK
 - ~50 techniques mapped across all attack phases
 - ATT&CK Navigator layer export for visualization
 - Every attack step tagged with technique IDs
