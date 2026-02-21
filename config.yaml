@@ -1,0 +1,79 @@
+# ============================================================
+# RedTeam Framework - Default Configuration
+# ============================================================
+
+general:
+  engagement_name: "RedTeam Assessment"
+  output_dir: "./output"
+  log_level: "INFO"
+  max_threads: 10
+  timeout: 30
+
+recon:
+  subdomain:
+    wordlist: "wordlists/subdomains.txt"
+    use_ct_logs: true
+    max_concurrent: 50
+  port_scan:
+    scan_type: "SYN"           # SYN, TCP, UDP
+    port_range: "1-1024"       # Common ports
+    full_range: "1-65535"      # Full range (use with --full flag)
+    service_detection: true
+    os_detection: true
+    script_scan: true
+    timing: 4                  # Nmap timing template (0-5)
+  web:
+    wordlist: "wordlists/directories.txt"
+    extensions: [".php", ".html", ".js", ".asp", ".aspx", ".jsp"]
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) RedTeam/1.0"
+  vuln:
+    nvd_api_url: "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    exploitdb_search: true
+    max_cvss_age_days: 365
+
+exploit:
+  brute_force:
+    ssh_wordlist: "wordlists/passwords.txt"
+    username_list: "wordlists/usernames.txt"
+    max_attempts: 100
+    parallel_tasks: 4
+    timeout: 10
+  web:
+    sqlmap_level: 3
+    sqlmap_risk: 2
+    test_xss: true
+    test_lfi: true
+    test_rfi: true
+    test_cmdi: true
+  auto_exploit:
+    enabled: true
+    max_cvss_threshold: 10.0
+    min_cvss_threshold: 5.0
+
+post_exploit:
+  priv_escalation:
+    check_suid: true
+    check_sudo: true
+    check_kernel: true
+    check_services: true
+  lateral_movement:
+    scan_internal: true
+    reuse_creds: true
+    protocols: ["ssh", "smb", "rdp", "winrm"]
+  persistence:
+    check_cron: true
+    check_registry: true
+    check_services: true
+    check_startup: true
+
+reporting:
+  format: ["html", "json"]
+  include_attack_graph: true
+  include_mitre_navigator: true
+  executive_summary: true
+  risk_matrix: true
+
+dashboard:
+  host: "127.0.0.1"
+  port: 5000
+  debug: false
